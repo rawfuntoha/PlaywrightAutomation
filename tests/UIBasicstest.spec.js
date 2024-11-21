@@ -8,10 +8,10 @@ test('Browser context playwright test',async ({browser})=>
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
 });
 
-test('page playwright test',async ({page})=>
+test.only('page playwright test',async ({page})=>
 
     {
         //const context = await browser.newContext();
         //const page = await context.newPage();
-        await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+        await page.goto("https://google.com");
     });
