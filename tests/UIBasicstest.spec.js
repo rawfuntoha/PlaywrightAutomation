@@ -1,9 +1,9 @@
 const {test} = require('@playwright/test');
 
-test('First playwright test',function()
+test('First playwright test',async function()
 
 {
-
+    
 }
 
 );
