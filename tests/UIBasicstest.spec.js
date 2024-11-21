@@ -1,3 +1,9 @@
 const {test} = require('@playwright/test');
 
-test()
+test('First playwright test',function()
+
+{
+
+}
+
+);
