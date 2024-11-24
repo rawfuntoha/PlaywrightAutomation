@@ -29,8 +29,16 @@ test.only('Browser context playwright test',async ({browser})=>
   await signIn.click();
   
   console.log(await cardTitles.nth(1).textContent());
-
   //await delay;
+  
+  const allTitles = await cardTitles.allTextContents();
+  // await expect(allTitles).toContainText("Samsung Note 8");
+
+  const containsText = allTitles.some(title => title.includes("Samsung Note 8"));
+
+  await expect(containsText).toBe(true); 
+  console.log(allTitles);
+
 
 
 });
