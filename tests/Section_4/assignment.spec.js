@@ -14,4 +14,5 @@ test.only('Browser context playwright test',async ({page})=>  {
 
     await delay;
     //home
+    //mac
   });
