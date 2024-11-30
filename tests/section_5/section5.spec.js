@@ -23,3 +23,33 @@ test('UI Controls', async ({page})=>
 
     });
    
+    test.only('@Child windows', async ({browser})=>
+    {
+        const context = await browser.newContext();
+        const page =  await context.newPage();
+        const userName = page.locator('#username');
+        await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+        const documentLink = page.locator("[href*='documents-request']");
+        documentLink.click();
+        const [newPage]= await Promise.all(
+                  [
+                     context.waitForEvent('page'),
+                     documentLink.click(),
+                  
+                  ])
+
+        const  text = await newPage.locator(".red").textContent();
+        const arrayText = text.split('@')
+        const email =  arrayText[1].split(" ")[0]
+        console.log(email);
+        await page.locator("#username").fill(email);
+        await page.pause();
+        console.log(await page.locator("#username").textContent()); 
+
+
+    });
+
+
+
+ 
+       
