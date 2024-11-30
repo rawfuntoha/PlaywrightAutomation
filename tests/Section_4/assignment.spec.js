@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test.only('Browser context playwright test',async ({page})=>  {
+test('Browser context playwright test',async ({page})=>  {
     await page.goto("https://rahulshettyacademy.com/client");
      const delay = page.waitForTimeout(10000);
 
@@ -8,11 +8,11 @@ test.only('Browser context playwright test',async ({page})=>  {
     await page.locator('#userPassword').fill("12345@Jatri");
     await page.locator('#login').click();
 
-    await page.waitForLoadState('networkidle')
+    //await page.waitForLoadState('networkidle');
+    await page.locator(".card-body b").first().waitFor();
     const titles = await page.locator(".card-body b").allTextContents();
     console.log(titles);
 
     await delay;
-    //home
-    //mac
+    
   });
